@@ -6,21 +6,18 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
 import {
-  mainnet,
-  polygon,
-  optimism,
-  arbitrum,
-  base,
+zksyncSepoliaTestnet
 } from 'wagmi/chains';
 import {
   QueryClientProvider,
   QueryClient,
 } from "@tanstack/react-query";
+import ContractInteract from './components/contractinteraction';
 
 const config = getDefaultConfig({
   appName: 'My RainbowKit App',
   projectId: 'YOUR_PROJECT_ID',
-  chains: [mainnet, polygon, optimism, arbitrum, base],
+  chains: [zksyncSepoliaTestnet],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
 
@@ -33,6 +30,7 @@ const App = () => {
         <RainbowKitProvider>
         <ConnectButton/>
         <div>Hello</div>
+        <ContractInteract/>
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
